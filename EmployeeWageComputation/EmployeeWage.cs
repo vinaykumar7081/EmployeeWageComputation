@@ -23,22 +23,21 @@ namespace EmployeeWageComputation
         {
             Random random = new Random();
             int empCheck = random.Next(0, 3);
-            
-                if (empCheck == FULL_TIME_EMP)
-                {
-                Console.WriteLine("Employee Working As A full Time");
-                empHrs = EMP_FULL_DAY_WRKING_HR;
-                }
-                else if(empCheck == PART_TIME_EMP)
-                {
-                Console.WriteLine("Employee Working As Part TIme");
-                empHrs = EMP_PART_TIME_WRKING_HR;
-                 }
-            
-               else 
-               {
-                empHrs=0;
-                }
+
+            switch (empCheck)
+            {
+                case FULL_TIME_EMP:
+                    Console.WriteLine("Employee Working As A full Time");
+                    empHrs = EMP_FULL_DAY_WRKING_HR;
+                                 break;
+                case PART_TIME_EMP:
+                    Console.WriteLine("Employee Working As Part TIme");
+                    empHrs = EMP_PART_TIME_WRKING_HR;
+                              break;
+               default:
+                    empHrs = 0;
+                    break;
+            }
             oneDayEmpSalary = empHrs * EMP_WAGE_PR_HR;
             Console.WriteLine("One Day Employee salary is :" + oneDayEmpSalary);
         }
