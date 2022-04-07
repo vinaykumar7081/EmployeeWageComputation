@@ -9,34 +9,36 @@ namespace EmployeeWageComputation
     public class EmployeeWage
     {
         //constance value
+        const int PART_TIME_EMP = 1;
+        const int FULL_TIME_EMP = 2;
         const int EMP_WAGE_PR_HR = 20;
         const int EMP_FULL_DAY_WRKING_HR = 8;
-        const int IS_PRESENT = 1;
+        const int EMP_PART_TIME_WRKING_HR = 4;
+       
         //variable values
         int empHrs = 0;
         int oneDayEmpSalary=0;
-        public void empAttandence()
-        {   
-            Random random = new Random();
-            int empCheck=random.Next(0,2);
-           
-            if (empCheck == IS_PRESENT)
-                Console.WriteLine("Employee is Present");
-            else
-                Console.WriteLine("Employee is Absent");
-        }
+        
         public void dailyEmpWage()
         {
             Random random = new Random();
-            int empCheck = random.Next(0, 2);
-            if (empCheck == IS_PRESENT)
-            {
-                empHrs = 8;
-            }
-            else
-            {
+            int empCheck = random.Next(0, 3);
+            
+                if (empCheck == FULL_TIME_EMP)
+                {
+                Console.WriteLine("Employee Working As A full Time");
+                empHrs = EMP_FULL_DAY_WRKING_HR;
+                }
+                else if(empCheck == PART_TIME_EMP)
+                {
+                Console.WriteLine("Employee Working As Part TIme");
+                empHrs = EMP_PART_TIME_WRKING_HR;
+                 }
+            
+               else 
+               {
                 empHrs=0;
-            }
+                }
             oneDayEmpSalary = empHrs * EMP_WAGE_PR_HR;
             Console.WriteLine("One Day Employee salary is :" + oneDayEmpSalary);
         }
