@@ -15,9 +15,9 @@ namespace EmployeeWageComputation
         //variable values
         int empHrs = 0, totalEmpSalary = 0, totalEmpHrs = 0, day = 0;
              
-        public void monthlyEmpWage(string company_Name,int EMP_WAGE_PR_HR,int MAX_WORKING_HR,int EMP_WORKING_Days_PR_MONTH,int EMP_FULL_DAY_WRKING_HR, int EMP_PART_TIME_WRKING_HR)
+        public void monthlyEmpWage(string company_Name,int emp_Wage_Pr_Hr,int max_Working_Hr,int emp_Working_Days_Pr_Month,int emp_Full_Day_Working_Hr, int emp_Part_Time_Working_Hr)
         {
-            while (day <= EMP_WORKING_Days_PR_MONTH && empHrs <= MAX_WORKING_HR)
+            while (day <= emp_Working_Days_Pr_Month && empHrs <= max_Working_Hr)
             {
                 Random random = new Random();
                 int empCheck = random.Next(0, 3);
@@ -26,11 +26,11 @@ namespace EmployeeWageComputation
                 {
                     case FULL_TIME_EMP:
 
-                        empHrs += EMP_FULL_DAY_WRKING_HR;
+                        empHrs += emp_Full_Day_Working_Hr;
                         break;
                     case PART_TIME_EMP:
 
-                        empHrs += EMP_PART_TIME_WRKING_HR;
+                        empHrs += emp_Part_Time_Working_Hr;
                         break;
                     default:
                         empHrs = 0;
@@ -38,7 +38,7 @@ namespace EmployeeWageComputation
                 }
                 day++;
             }
-            totalEmpSalary = empHrs * EMP_WAGE_PR_HR;
+            totalEmpSalary = empHrs * emp_Wage_Pr_Hr;
             Console.WriteLine("One month Employee Salary is :" + totalEmpSalary);
         }
        
