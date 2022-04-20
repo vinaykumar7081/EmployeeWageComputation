@@ -11,13 +11,11 @@ namespace EmployeeWageComputation
         //constance value
         const int PART_TIME_EMP = 1;
         const int FULL_TIME_EMP = 2;
-        const int EMP_FULL_DAY_WRKING_HR = 8;
-        const int EMP_PART_TIME_WRKING_HR = 4;
             
         //variable values
         int empHrs = 0, totalEmpSalary = 0, totalEmpHrs = 0, day = 0;
              
-        public void monthlyEmpWage(string company_Name,int EMP_WAGE_PR_HR,int MAX_WORKING_HR,int EMP_WORKING_Days_PR_MONTH)
+        public void monthlyEmpWage(string company_Name,int EMP_WAGE_PR_HR,int MAX_WORKING_HR,int EMP_WORKING_Days_PR_MONTH,int EMP_FULL_DAY_WRKING_HR, int EMP_PART_TIME_WRKING_HR)
         {
             while (day <= EMP_WORKING_Days_PR_MONTH && empHrs <= MAX_WORKING_HR)
             {
@@ -39,9 +37,7 @@ namespace EmployeeWageComputation
                         break;
                 }
                 day++;
-
             }
-
             totalEmpSalary = empHrs * EMP_WAGE_PR_HR;
             Console.WriteLine("One month Employee Salary is :" + totalEmpSalary);
         }
