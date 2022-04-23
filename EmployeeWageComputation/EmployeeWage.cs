@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EmployeeWageComputation
 {
-    public class EmployeeWageBuilderObject
+    public class EmployeeWage
     {
         //constance value
         const int PART_TIME_EMP = 1;
@@ -17,7 +17,7 @@ namespace EmployeeWageComputation
         private int emp_Max_Working_Hr;
         private int emp_Working_Day_Pr_Month;
         public decimal total_Emp_Wage;
-        public EmployeeWageBuilderObject(string company_Name, int emp_Wage_PR_Hr, int max_Working_Hr, int emp_Working_Days_Pr_Month)
+        public EmployeeWage(string company_Name, int emp_Wage_PR_Hr, int max_Working_Hr, int emp_Working_Days_Pr_Month)
         { 
             this.company_Name = company_Name;
             this.emp_Wage_Pr_Hr = emp_Wage_PR_Hr;
