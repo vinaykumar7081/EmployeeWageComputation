@@ -73,7 +73,7 @@ namespace EmployeeWageComputation
                 day++;
                 totalEmpHrs += empHrs;
                 Console.WriteLine("Days@" + empWageBuilderObject.Emp_Working_Day_Pr_Month + "empHours " + empHrs);
-                int dailyEmpWage = totalEmpHrs * empWageBuilderObject.Emp_Wage_Pr_Hr;
+                 dailyEmpWage += empHrs * empWageBuilderObject.Emp_Wage_Pr_Hr;
                 Console.WriteLine("Daily EmployeeWage of A Company:-->" +dailyEmpWage);
             }
             totalEmpSalary = totalEmpHrs * empWageBuilderObject.Emp_Wage_Pr_Hr;
