@@ -5,11 +5,15 @@ class Program
     public static void Main(String[] args)
     {
         EmployeeWage company = new EmployeeWage();
-        
-        company.AddCompanyEmpWage("google", 500, 100, 20);
-        company.AddCompanyEmpWage("faceBook", 600, 150, 18);
+        Console.WriteLine("Enter the Company_Name \n EmpWage_Working_Pr_Hours \n Total_Working_Hours \n Total_Working_Das_In_Month");
+        string comp_Name=Console.ReadLine();
+        int EmpWage_Working_Pr_Hours=Convert.ToInt32(Console.ReadLine());
+        int Total_Working_Hours=Convert.ToInt32(Console.ReadLine());
+        int Total_Working_Das_In_Month=Convert.ToInt32(Console.ReadLine());
+        company.AddCompanyEmpWage(comp_Name, EmpWage_Working_Pr_Hours, Total_Working_Hours, Total_Working_Das_In_Month);
+        //company.AddCompanyEmpWage(comp_Name, EmpWage_Working_Pr_Hours, Total_Working_Hours, Total_Working_Das_In_Month);
         company.ComputeEmpWage();
-        Console.WriteLine(company.ToString());
+        Console.WriteLine("Total wage for"+ comp_Name +":"+" "+company.GetTotalEmpWage(comp_Name));
     }
 }
 

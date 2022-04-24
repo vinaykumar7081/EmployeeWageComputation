@@ -6,29 +6,31 @@ using System.Threading.Tasks;
 
 namespace EmployeeWageComputation
 {
-    public class EmployeeWage
+    public class EmployeeWage: InterComputeEmpWage
     {
         //constance value
         const int PART_TIME_EMP = 1;
         const int FULL_TIME_EMP = 2;
 
-        private int numberOfCompany=0 ;
-        private EmpWageBuilderObject[] compEmpWageArray;
+        private  LinkedList<EmpWageBuilderObject> compEmpWageList;
+        private Dictionary<string,EmpWageBuilderObject> compToEmpWageMap;
         public  EmployeeWage()
         {
-            this.compEmpWageArray = new EmpWageBuilderObject[5];
+            this.compEmpWageList = new LinkedList<EmpWageBuilderObject>();
+            this.compToEmpWageMap = new Dictionary<string,EmpWageBuilderObject>();
         }
         public void AddCompanyEmpWage(string company_Name, int emp_Wage_PR_Hr, int max_Working_Hr, int emp_Working_Days_Pr_Month)
         {
-            compEmpWageArray[this.numberOfCompany] = new EmpWageBuilderObject(company_Name, emp_Wage_PR_Hr, max_Working_Hr, emp_Working_Days_Pr_Month);
-            numberOfCompany++;
+            EmpWageBuilderObject empWageBuilderObject = new EmpWageBuilderObject(company_Name, emp_Wage_PR_Hr, max_Working_Hr, emp_Working_Days_Pr_Month);
+            this.compEmpWageList.AddLast(empWageBuilderObject);
+            this.compToEmpWageMap.Add(company_Name, empWageBuilderObject);  
         }
         public void ComputeEmpWage()
         {
-            for (int i = 0; i < compEmpWageArray.Length; i++)
+            foreach (EmpWageBuilderObject empWageBuilderObject in this.compEmpWageList)
             {
-                compEmpWageArray[i].SetTotalEmpWage(this.ComputeEmpWage(this.compEmpWageArray[i]));
-                Console.WriteLine(this.compEmpWageArray[i].ToString());
+                empWageBuilderObject.SetTotalEmpWage(this.ComputeEmpWage(empWageBuilderObject));
+                Console.WriteLine(empWageBuilderObject.ToString());
             }
         }
         private int ComputeEmpWage(EmpWageBuilderObject empWageBuilderObject)
@@ -59,6 +61,10 @@ namespace EmployeeWageComputation
             }
             return totalEmpSalary = totalEmpHrs * empWageBuilderObject.emp_Wage_Pr_Hr;
 
+        }
+        public int GetTotalEmpWage(string comp_Name)
+        {
+            return (int) this.compToEmpWageMap[comp_Name].total_Emp_Wage;
         }
     } 
 }

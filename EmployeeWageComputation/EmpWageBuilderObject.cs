@@ -19,6 +19,7 @@ namespace EmployeeWageComputation
             this.emp_Wage_Pr_Hr = emp_Wage_PR_Hr;
             this.emp_Max_Working_Hr = max_Working_Hr;
             this.emp_Working_Day_Pr_Month = emp_Working_Days_Pr_Month;
+            this.total_Emp_Wage = 0;
         }
         public void SetTotalEmpWage(int total_Emp_Wage)
         { 
